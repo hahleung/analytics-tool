@@ -37,6 +37,7 @@ end
 # s = Model::User.get_total_spend('smith_briana@ziemannjacobson.com', store)
 # q = Model::User.get_average_spend('smith_briana@ziemannjacobson.com', store)
 # y = Service::User.most_loyal(store)
-z = Service::User.highest_value(store)
+# z = Service::User.highest_value(store)
+u = Service::Purchase.get_most_sold(store)
 
 binding.pry

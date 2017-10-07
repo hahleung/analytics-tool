@@ -91,7 +91,7 @@ describe 'Service::User' do
       end
     end
 
-    context 'when there are two highest valye persons' do
+    context 'when there are two highest value persons' do
       let(:second_highest) { 'second_highest' }
       let(:store_purchases) do
         [

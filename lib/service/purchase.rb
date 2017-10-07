@@ -8,6 +8,18 @@ module Service
       end
     end
 
+    def self.get_most_sold(store)
+      occurences = Hash.new(0)
+
+      get_all(store).each do |purchase|
+        occurences[purchase.fetch('item')] += 1
+      end
+
+      max_frequency = occurences.values.max
+
+      occurences.keep_if { |_, value| value == max_frequency }.keys
+    end
+
     private 
 
     def self.get_all(store)
