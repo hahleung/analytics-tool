@@ -46,13 +46,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  figaro
-  json
-  logger
-  pry
-  redis
-  rest-client
-  rspec
+  figaro (~> 1.1)
+  json (~> 2.1)
+  logger (~> 1.2)
+  pry (~> 0.11)
+  redis (~> 4.0)
+  rest-client (~> 2.0)
+  rspec (~> 3.6)
 
 BUNDLED WITH
    1.16.0.pre.2
