@@ -8,7 +8,7 @@ module Service
       end
     end
 
-    def self.get_most_sold(store)
+    def self.most_sold(store)
       occurences = Hash.new(0)
 
       get_all(store).each do |purchase|

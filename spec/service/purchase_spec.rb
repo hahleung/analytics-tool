@@ -42,7 +42,7 @@ describe 'Service::Purchase' do
     let(:store) { double('store') }
     let(:most_sold_item) { double('most_sold_item') }
 
-    subject { Service::Purchase.get_most_sold(store) }
+    subject { Service::Purchase.most_sold(store) }
 
     before do
       allow(Service::Purchase).to receive(:get_all)
