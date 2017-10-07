@@ -12,8 +12,8 @@ module Model
 
     def get_total_spend
       purchases.reduce(0) do |total, purchase|
-        total + purchase.fetch('spend').to_f.round(2) 
-      end
+        total + purchase.fetch('spend').to_f
+      end.round(2)
     end
 
     def get_average_spend
