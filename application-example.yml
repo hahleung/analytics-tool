@@ -1,0 +1,4 @@
+root_url: "http://root-url.com"
+purchases_endpoint: "/purchasesendpointprobably"
+users_endpoint: "/usersendpointprobably"
+max_age_seconds: "0"
