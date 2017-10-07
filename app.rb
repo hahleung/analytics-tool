@@ -33,9 +33,10 @@ if store.is_cache_outdated?
   end
 end
 
-t = Service::Purchase.get_by_email('smith_briana@ziemannjacobson.com', store)
-s = Model::User.get_total_spend('smith_briana@ziemannjacobson.com', store)
-q = Model::User.get_average_spend('smith_briana@ziemannjacobson.com', store)
-y = Service::User.most_loyal(store)
+# t = Service::Purchase.get_by_email('smith_briana@ziemannjacobson.com', store)
+# s = Model::User.get_total_spend('smith_briana@ziemannjacobson.com', store)
+# q = Model::User.get_average_spend('smith_briana@ziemannjacobson.com', store)
+# y = Service::User.most_loyal(store)
+z = Service::User.highest_value(store)
 
 binding.pry

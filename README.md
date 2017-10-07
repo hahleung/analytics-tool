@@ -25,4 +25,5 @@ Frameworks:
 
 Misc:
 - Architecture: layers style, modular as much as possible to enable extension
+- Cache strategy:
 - Tests coverage:
