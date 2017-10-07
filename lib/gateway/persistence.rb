@@ -7,9 +7,9 @@ module Gateway
       @storage = Redis.new
     end
 
-    def set(table, id, field, value)
+    def set(table, id, fields)
       key = [table, id].join(':')
-      @storage.hset(key, field, value)
+      @storage.hmset(key, *fields)
       @storage.expire(key, MAX_AGE_DURATION)
     end
 

@@ -52,24 +52,33 @@ module Orchestrator
     def check_cache
       if store.is_cache_outdated?
         store.set_cache
-        logger.info('Retrieving users')
-        users = Gateway::Http.get(Figaro.env.root_url + Figaro.env.users_endpoint)
+
+        # Not useful at this stage
+        # logger.info('Retrieving users')
+        # users = Gateway::Http.get(Figaro.env.root_url + Figaro.env.users_endpoint)
+
+        # logger.info('Storing users')
+        # users.each.with_index do |user, i|
+        #   fields = [
+        #     'id', i,
+        #     'email', user.fetch('email')
+        #   ]
+        #   store.set('user', i, fields)
+        # end
+
+        # Craft proper data schema and extract these operations
         logger.info('Retrieving purchases')
         purchases = Gateway::Http.get(Figaro.env.root_url + Figaro.env.purchases_endpoint)
 
-        logger.info('Storing users')
-        users.each.with_index do |user, i|
-          store.set('user', i, 'id', i)
-          store.set('user', i, 'email', user.fetch('email'))
-        end
-
-        # Craft proper data schema and extract these operations
         logger.info('Storing purchases')
         purchases.each.with_index do |purchase, i|
-          store.set('purchase', i, 'id', i)
-          store.set('purchase', i, 'email', purchase.fetch('email'))
-          store.set('purchase', i, 'item', purchase.fetch('item'))
-          store.set('purchase', i, 'spend', purchase.fetch('spend'))
+          fields = [
+            'id', i,
+            'email', purchase.fetch('email'),
+            'item', purchase.fetch('item'),
+            'spend', purchase.fetch('spend')
+          ]
+          store.set('purchase', i, fields) 
         end
       end
     end
