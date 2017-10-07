@@ -63,6 +63,7 @@ module Orchestrator
           store.set('user', i, 'email', user.fetch('email'))
         end
 
+        # Craft proper data schema and extract these operations
         logger.info('Storing purchases')
         purchases.each.with_index do |purchase, i|
           store.set('purchase', i, 'id', i)

@@ -15,21 +15,15 @@ module Service
     end
 
     def self.highest_value(store)
-      stats = get_all_purchases(store).reduce({}) do |amount, purchase|
-        email = purchase.fetch('email')
-        spend = purchase.fetch('spend').to_f
+      amounts = Hash.new(0)
 
-        if amount.key?(email)
-          amount[email] += spend
-          amount
-        else
-          amount.merge({email => spend})
-        end
+      get_all_purchases(store).each do |purchase|
+        amounts[purchase.fetch('email')] += purchase.fetch('spend').to_f
       end
 
-      max_amount = stats.values.max
+      max_amount = amounts.values.max
 
-      stats.keep_if { |_, value| value == max_amount }.keys
+      amounts.keep_if { |_, value| value == max_amount }.keys
     end
 
     private

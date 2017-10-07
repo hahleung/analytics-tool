@@ -45,3 +45,5 @@ Misc:
 - Extract cache checking
 - Open 2 concurrent threads while making calls to `purchases` and `users`
 - Cache `most_loyal`, `most_sold`, `highest_value` results
+- Refactor `most_loyal`, `most_sold`, `highest_value` logic (sharing the same pattern)
+- Craft proper schemas for persistence layer
