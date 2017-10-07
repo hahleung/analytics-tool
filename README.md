@@ -26,9 +26,9 @@ After cloning this repo, run at the root:
 ### Technical choices justifications
 
 Frameworks:
-- Rspec: fast
+- Rspec: fast to spin up a simple tests suite, `MiniTest` is good as well
+- Figaro:
 
 Misc:
 - Architecture: layers style, modular as much as possible to enable extension
 - Tests coverage:
-
