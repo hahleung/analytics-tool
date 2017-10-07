@@ -1,8 +1,11 @@
 source 'http://rubygems.org'
 
 gem 'figaro'
-gem 'rest-client'
 gem 'json'
+gem 'logger'
+
+gem 'rest-client'
 gem 'redis'
 
 gem 'pry'
+gem 'rspec'

@@ -1,6 +1,5 @@
 module Gateway
   class Persistence
-    attr_accessor :storage
     MAX_AGE = 'max_age'.freeze
     MAX_AGE_DURATION = Figaro.env.max_age_seconds
 
@@ -21,6 +20,12 @@ module Gateway
 
     def is_cache_outdated?
       @storage.ttl(MAX_AGE) == -2
+    end
+
+    def get_table(table)
+      @storage.scan_each(match: "#{table}:*").map do |element|
+        @storage.hgetall(element)
+      end
     end
   end
 end
