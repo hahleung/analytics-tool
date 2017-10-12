@@ -35,11 +35,11 @@ module Orchestrator
     private
 
     def check_inputs
-      raise logger.warn('Unexpected number of inputs') if inputs.size > 2 || inputs.size.zero?
+      raise RuntimeError, 'Unexpected number of inputs' if inputs.size > 2 || inputs.size.zero?
 
       command = inputs.first
       if inputs.size == 1
-        raise logger.warn('Invalid command') unless COMMANDS.include?(command)
+        raise RuntimeError, 'Invalid command' unless COMMANDS.include?(command)
         return command
       else
         raise logger.warn('Invalid command') unless COMMANDS_WITH_EMAIL.include?(command)
@@ -47,6 +47,9 @@ module Orchestrator
         # email parsing to be done: sanitizing, validating?
         return [command, email]
       end
+    rescue => error
+      logger.warn(error.message)
+      raise error
     end
 
     def check_cache
